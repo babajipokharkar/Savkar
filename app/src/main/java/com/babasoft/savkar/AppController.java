@@ -5,6 +5,7 @@ package com.babasoft.savkar;
  */
 
 import android.app.Application;
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
@@ -16,7 +17,7 @@ import com.google.android.gms.analytics.Tracker;
 
 public class AppController extends Application {
     private Tracker mTracker;
-
+    private static Context context;
     public static final String TAG = AppController.class.getSimpleName();
 
     private RequestQueue mRequestQueue;
@@ -27,6 +28,7 @@ public class AppController extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+        context=getApplicationContext();
     }
 
     public static synchronized AppController getInstance() {
@@ -70,5 +72,8 @@ public class AppController extends Application {
         if (mRequestQueue != null) {
             mRequestQueue.cancelAll(tag);
         }
+    }
+    public static Context getAppContext(){
+        return context;
     }
 }

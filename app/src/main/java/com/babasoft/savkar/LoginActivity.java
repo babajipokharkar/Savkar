@@ -53,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
     public static final String MyPREFERENCES = "MyPrefs" ;
     final private int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 124;
     Tracker mTracker;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +71,6 @@ public class LoginActivity extends AppCompatActivity {
      //   text.setSpan(new ForegroundColorSpan(Color.WHITE), 0, text.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
       //  actionBar.setTitle(text);
         sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-
         if(sharedPreferences.getBoolean("IsLogin",false)){
             startActivity(new Intent(this,MainActivity.class));
             finish();
